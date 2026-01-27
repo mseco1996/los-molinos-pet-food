@@ -1,0 +1,35 @@
+<section id="puntos-venta" class="puntos-venta-section">
+    <div class="container">
+        <h2>AHORRÁ EN ENVÍO: ACERCATE A TU LOCAL</h2>
+        <p class="section-subtitle">Encontrá tu punto de retiro GRATIS más cercano en Capital Federal y GBA</p>
+
+        <div class="map-container">
+            <div class="map-sidebar">
+                <div class="search-box">
+                    <i class="fas fa-search"></i>
+                    <input type="text" id="searchLocation" placeholder="Buscar tu barrio...">
+                </div>
+
+                <div class="locations-list">
+                    <h3>Zonas de Retiro</h3>
+                    <div class="province-item active" onclick="filterByProvince('Capital Federal')">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Capital Federal</span>
+                    </div>
+                    <div class="province-item" onclick="filterByProvince('Buenos Aires')">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Gran Buenos Aires</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="map-wrapper">
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3397.5234567890123!2d-60.6393!3d-31.6333!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzHCsDM4JzAwLjAiUyA2MMKwMzgnMjEuNSJX!5e0!3m2!1ses!2sar!4v1234567890123!5m2!1ses!2sar"
+                    width="100%" height="600" style="border:0; border-radius: 15px;" allowfullscreen="" loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+            </div>
+        </div>
+    </div>
+</section>

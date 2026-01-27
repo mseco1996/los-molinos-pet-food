@@ -1,0 +1,391 @@
+<section id="catalogo" class="catalog-section">
+    <div class="container">
+        <h2>NUESTROS PRODUCTOS</h2>
+        <p class="catalog-subtitle">Alimento balanceado | CONSULTE STOCK ANTES DE COMPRAR</p>
+
+        <!-- Tabs Navigation -->
+        <div class="catalog-tabs">
+            <button class="tab-btn active" onclick="switchTab('deleita')">
+                <i class="fas fa-star"></i> Línea Deleita Premium
+            </button>
+            <button class="tab-btn" onclick="switchTab('otras')">
+                <i class="fas fa-paw"></i> Otras Líneas
+            </button>
+        </div>
+
+        <!-- Tab Content: Deleita Premium -->
+        <div id="tab-deleita" class="tab-content active">
+            <div class="products-grid">
+                <!-- Producto 1: Gatos Adultos SP -->
+                <div class="product-card">
+                    <div class="product-image-wrapper">
+                        <a href="https://www.deleitasuperpremium.com/deleitagatosadultos/" target="_blank"
+                            class="product-image-link">
+                            <img src="assets/Deletia Super Premium Gatos Adultos.png"
+                                alt="Deleita Super Premium Gatos Adultos">
+                        </a>
+                    </div>
+                    <h3>DELEITA Super Premium - Gatos Adultos</h3>
+                    <p class="product-description">15kg | Alimento balanceado | CONSULTE STOCK ANTES DE COMPRAR</p>
+                    <p class="product-price">$35.900,00</p>
+                    <div class="quantity-selector">
+                        <button class="qty-btn minus" onclick="decreaseQty('gatos-adultos-sp')">-</button>
+                        <input type="number" id="qty-gatos-adultos-sp" value="1" min="1" readonly>
+                        <button class="qty-btn plus" onclick="increaseQty('gatos-adultos-sp')">+</button>
+                    </div>
+                    <button class="add-to-cart-btn"
+                        onclick="addToCart('gatos-adultos-sp', 'DELEITA Super Premium - Gatos Adultos', 35900, 'assets/Deletia Super Premium Gatos Adultos.png')">
+                        <i class="fas fa-shopping-cart"></i> Agregar al Carrito
+                    </button>
+                </div>
+
+                <!-- Producto 2: Perros Cachorros SP -->
+                <div class="product-card">
+                    <div class="product-image-wrapper">
+                        <a href="https://www.deleitasuperpremium.com/deleitacachorros/" target="_blank"
+                            class="product-image-link">
+                            <img src="assets/Deleita SP Perros Cachorros.png"
+                                alt="Deleita Super Premium Perros Cachorros">
+                        </a>
+                    </div>
+                    <h3>DELEITA Super Premium - Perros Cachorros</h3>
+                    <p class="product-description">22kg | Alimento balanceado | CONSULTE STOCK ANTES DE COMPRAR</p>
+                    <p class="product-price">$62.600,00</p>
+                    <div class="quantity-selector">
+                        <button class="qty-btn minus" onclick="decreaseQty('perros-cachorros-sp')">-</button>
+                        <input type="number" id="qty-perros-cachorros-sp" value="1" min="1" readonly>
+                        <button class="qty-btn plus" onclick="increaseQty('perros-cachorros-sp')">+</button>
+                    </div>
+                    <button class="add-to-cart-btn"
+                        onclick="addToCart('perros-cachorros-sp', 'DELEITA Super Premium - Perros Cachorros', 62600, 'assets/Deleita SP Perros Cachorros.png')">
+                        <i class="fas fa-shopping-cart"></i> Agregar al Carrito
+                    </button>
+                </div>
+
+                <!-- Producto 3: Perros Adultos SP -->
+                <div class="product-card">
+                    <div class="product-image-wrapper">
+                        <a href="https://www.deleitasuperpremium.com/deleitaperrosadultos/" target="_blank"
+                            class="product-image-link">
+                            <img src="assets/Deleita SP PErros Adultos.png" alt="Deleita Super Premium Perros Adultos">
+                        </a>
+                    </div>
+                    <h3>DELEITA Super Premium - Perros Adultos</h3>
+                    <p class="product-description">22kg | Alimento balanceado | CONSULTE STOCK ANTES DE COMPRAR</p>
+                    <p class="product-price">$49.800,00</p>
+                    <div class="quantity-selector">
+                        <button class="qty-btn minus" onclick="decreaseQty('perros-adultos-sp')">-</button>
+                        <input type="number" id="qty-perros-adultos-sp" value="1" min="1" readonly>
+                        <button class="qty-btn plus" onclick="increaseQty('perros-adultos-sp')">+</button>
+                    </div>
+                    <button class="add-to-cart-btn"
+                        onclick="addToCart('perros-adultos-sp', 'DELEITA Super Premium - Perros Adultos', 49800, 'assets/Deleita SP PErros Adultos.png')">
+                        <i class="fas fa-shopping-cart"></i> Agregar al Carrito
+                    </button>
+                </div>
+
+                <!-- Producto 4: Perros Adultos Mordida Pequeña SP -->
+                <div class="product-card">
+                    <div class="product-image-wrapper">
+                        <a href="https://www.deleitasuperpremium.com/deleitaperrosadultosmp/" target="_blank"
+                            class="product-image-link">
+                            <img src="assets/Deleita SP perros adult mordi peque.png"
+                                alt="Deleita Super Premium Perros Adultos Mordida Pequeña">
+                        </a>
+                    </div>
+                    <h3>DELEITA Super Premium - Perros Adultos (Mordida Pequeña)</h3>
+                    <p class="product-description">15kg | Alimento balanceado | CONSULTE STOCK ANTES DE COMPRAR</p>
+                    <p class="product-price">$34.300,00</p>
+                    <div class="quantity-selector">
+                        <button class="qty-btn minus" onclick="decreaseQty('perros-adultos-mp-sp')">-</button>
+                        <input type="number" id="qty-perros-adultos-mp-sp" value="1" min="1" readonly>
+                        <button class="qty-btn plus" onclick="increaseQty('perros-adultos-mp-sp')">+</button>
+                    </div>
+                    <button class="add-to-cart-btn"
+                        onclick="addToCart('perros-adultos-mp-sp', 'DELEITA Super Premium - Perros Adultos (Mordida Pequeña)', 34300, 'assets/Deleita SP perros adult mordi peque.png')">
+                        <i class="fas fa-shopping-cart"></i> Agregar al Carrito
+                    </button>
+                </div>
+
+                <!-- Producto 5: Criadores SP -->
+                <div class="product-card">
+                    <div class="product-image-wrapper">
+                        <a href="https://www.deleitasuperpremium.com/deleitacriadores/" target="_blank"
+                            class="product-image-link">
+                            <img src="assets/Deleita SP Criadores.png" alt="Deleita Super Premium Criadores">
+                        </a>
+                    </div>
+                    <h3>DELEITA Super Premium - Criadores</h3>
+                    <p class="product-description">22kg | Alimento balanceado | CONSULTE STOCK ANTES DE COMPRAR</p>
+                    <p class="product-price">$70.600,00</p>
+                    <div class="quantity-selector">
+                        <button class="qty-btn minus" onclick="decreaseQty('criadores-sp')">-</button>
+                        <input type="number" id="qty-criadores-sp" value="1" min="1" readonly>
+                        <button class="qty-btn plus" onclick="increaseQty('criadores-sp')">+</button>
+                    </div>
+                    <button class="add-to-cart-btn"
+                        onclick="addToCart('criadores-sp', 'DELEITA Super Premium - Criadores', 70600, 'assets/Deleita SP Criadores.png')">
+                        <i class="fas fa-shopping-cart"></i> Agregar al Carrito
+                    </button>
+                </div>
+
+                <!-- Producto 6: Gatos Adultos Premium -->
+                <div class="product-card">
+                    <div class="product-image-wrapper">
+                        <img src="assets/Deleita premium gatos adultos.png" alt="Deleita Premium Gatos Adultos">
+                    </div>
+                    <h3>DELEITA Premium - Gatos Adultos</h3>
+                    <p class="product-description">15kg | Alimento balanceado | CONSULTE STOCK ANTES DE COMPRAR</p>
+                    <p class="product-price">$29.400,00</p>
+                    <div class="quantity-selector">
+                        <button class="qty-btn minus" onclick="decreaseQty('gatos-adultos-premium')">-</button>
+                        <input type="number" id="qty-gatos-adultos-premium" value="1" min="1" readonly>
+                        <button class="qty-btn plus" onclick="increaseQty('gatos-adultos-premium')">+</button>
+                    </div>
+                    <button class="add-to-cart-btn"
+                        onclick="addToCart('gatos-adultos-premium', 'DELEITA Premium - Gatos Adultos', 29400, 'assets/Deleita premium gatos adultos.png')">
+                        <i class="fas fa-shopping-cart"></i> Agregar al Carrito
+                    </button>
+                </div>
+
+                <!-- Producto 7: Perros Cachorros Premium -->
+                <div class="product-card">
+                    <div class="product-image-wrapper">
+                        <img src="assets/Deleita Premium perros cachorros.png" alt="Deleita Premium Perros Cachorros">
+                    </div>
+                    <h3>DELEITA Premium - Perros Cachorros</h3>
+                    <p class="product-description">15kg | Alimento balanceado | CONSULTE STOCK ANTES DE COMPRAR</p>
+                    <p class="product-price">$28.700,00</p>
+                    <div class="quantity-selector">
+                        <button class="qty-btn minus" onclick="decreaseQty('perros-cachorros-premium')">-</button>
+                        <input type="number" id="qty-perros-cachorros-premium" value="1" min="1" readonly>
+                        <button class="qty-btn plus" onclick="increaseQty('perros-cachorros-premium')">+</button>
+                    </div>
+                    <button class="add-to-cart-btn"
+                        onclick="addToCart('perros-cachorros-premium', 'DELEITA Premium - Perros Cachorros', 28700, 'assets/Deleita Premium perros cachorros.png')">
+                        <i class="fas fa-shopping-cart"></i> Agregar al Carrito
+                    </button>
+                </div>
+
+                <!-- Producto 8: Perros Adultos Premium -->
+                <div class="product-card">
+                    <div class="product-image-wrapper">
+                        <img src="assets/Deleita premium perros adultos.png" alt="Deleita Premium Perros Adultos">
+                    </div>
+                    <h3>DELEITA Premium - Perros Adultos</h3>
+                    <p class="product-description">22kg | Alimento balanceado | CONSULTE STOCK ANTES DE COMPRAR</p>
+                    <p class="product-price">$40.500,00</p>
+                    <div class="quantity-selector">
+                        <button class="qty-btn minus" onclick="decreaseQty('perros-adultos-premium')">-</button>
+                        <input type="number" id="qty-perros-adultos-premium" value="1" min="1" readonly>
+                        <button class="qty-btn plus" onclick="increaseQty('perros-adultos-premium')">+</button>
+                    </div>
+                    <button class="add-to-cart-btn"
+                        onclick="addToCart('perros-adultos-premium', 'DELEITA Premium - Perros Adultos', 40500, 'assets/Deleita premium perros adultos.png')">
+                        <i class="fas fa-shopping-cart"></i> Agregar al Carrito
+                    </button>
+                </div>
+
+                <!-- Producto 9: Perros Adultos Mordida Pequeña Premium -->
+                <div class="product-card">
+                    <div class="product-image-wrapper">
+                        <img src="assets/Deleita perros adults mordi peqeu.png"
+                            alt="Deleita Premium Perros Adultos Mordida Pequeña">
+                    </div>
+                    <h3>DELEITA Premium - Perros Adultos (Mordida Pequeña)</h3>
+                    <p class="product-description">15kg | Alimento balanceado | CONSULTE STOCK ANTES DE COMPRAR</p>
+                    <p class="product-price">$27.800,00</p>
+                    <div class="quantity-selector">
+                        <button class="qty-btn minus" onclick="decreaseQty('perros-adultos-mp-premium')">-</button>
+                        <input type="number" id="qty-perros-adultos-mp-premium" value="1" min="1" readonly>
+                        <button class="qty-btn plus" onclick="increaseQty('perros-adultos-mp-premium')">+</button>
+                    </div>
+                    <button class="add-to-cart-btn"
+                        onclick="addToCart('perros-adultos-mp-premium', 'DELEITA Premium - Perros Adultos (Mordida Pequeña)', 27800, 'assets/Deleita perros adults mordi peqeu.png')">
+                        <i class="fas fa-shopping-cart"></i> Agregar al Carrito
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tab Content: Otras Líneas -->
+        <div id="tab-otras" class="tab-content">
+            <div class="products-grid">
+                <!-- Producto 1: Winy Gato -->
+                <div class="product-card">
+                    <div class="product-image-wrapper">
+                        <img src="assets/winy gato.png" alt="Winy Gato">
+                    </div>
+                    <h3>Winy - Gato</h3>
+                    <p class="product-description">Peso y Sabor a elección</p>
+                    <p class="stock-warning">CONSULTE STOCK ANTES DE COMPRAR</p>
+                    <p class="product-price">Desde $18.000,00</p>
+
+                    <div class="product-options">
+                        <label>Peso:</label>
+                        <select id="peso-winy-gato" class="option-select">
+                            <option value="10kg">10kg</option>
+                            <option value="15kg">15kg</option>
+                            <option value="20kg">20kg</option>
+                        </select>
+                    </div>
+
+                    <div class="product-options">
+                        <label>Sabor:</label>
+                        <select id="sabor-winy-gato" class="option-select">
+                            <option value="Pollo">Pollo</option>
+                            <option value="Pescado">Pescado</option>
+                            <option value="Carne">Carne</option>
+                        </select>
+                    </div>
+
+                    <div class="quantity-selector">
+                        <button class="qty-btn minus" onclick="decreaseQty('winy-gato')">-</button>
+                        <input type="number" id="qty-winy-gato" value="1" min="1" readonly>
+                        <button class="qty-btn plus" onclick="increaseQty('winy-gato')">+</button>
+                    </div>
+                    <button class="add-to-cart-btn"
+                        onclick="addToCartWithOptions('winy-gato', 'Winy - Gato', 18000, 'assets/winy gato.png', 'peso-winy-gato', 'sabor-winy-gato')">
+                        <i class="fas fa-shopping-cart"></i> Agregar al Carrito
+                    </button>
+                </div>
+
+                <!-- Producto 2: Ducho Perro -->
+                <div class="product-card">
+                    <div class="product-image-wrapper">
+                        <img src="assets/Ducho perro.png" alt="Ducho Perro">
+                    </div>
+                    <h3>Ducho - Perro</h3>
+                    <p class="product-description">Peso a elección</p>
+                    <p class="stock-warning">CONSULTE STOCK ANTES DE COMPRAR</p>
+                    <p class="product-price">Desde $23.200,00</p>
+
+                    <div class="product-options">
+                        <label>Peso:</label>
+                        <select id="peso-ducho-perro" class="option-select">
+                            <option value="15kg">15kg</option>
+                            <option value="20kg">20kg</option>
+                            <option value="22kg">22kg</option>
+                        </select>
+                    </div>
+
+                    <div class="quantity-selector">
+                        <button class="qty-btn minus" onclick="decreaseQty('ducho-perro')">-</button>
+                        <input type="number" id="qty-ducho-perro" value="1" min="1" readonly>
+                        <button class="qty-btn plus" onclick="increaseQty('ducho-perro')">+</button>
+                    </div>
+                    <button class="add-to-cart-btn"
+                        onclick="addToCartWithOptions('ducho-perro', 'Ducho - Perro', 23200, 'assets/Ducho perro.png', 'peso-ducho-perro')">
+                        <i class="fas fa-shopping-cart"></i> Agregar al Carrito
+                    </button>
+                </div>
+
+                <!-- Producto 3: Rabito Perro Adulto MIX -->
+                <div class="product-card">
+                    <div class="product-image-wrapper">
+                        <img src="assets/Rabito perro Adulto Mix de sabores.png" alt="Rabito Perro Adulto MIX">
+                    </div>
+                    <h3>Rabito Perro Adulto MIX</h3>
+                    <p class="product-description">Peso y Sabor a elección</p>
+                    <p class="stock-warning">CONSULTE STOCK ANTES DE COMPRAR</p>
+                    <p class="product-price">Desde $30.000,00</p>
+
+                    <div class="product-options">
+                        <label>Peso:</label>
+                        <select id="peso-rabito-mix" class="option-select">
+                            <option value="15kg">15kg</option>
+                            <option value="20kg">20kg</option>
+                            <option value="22kg">22kg</option>
+                        </select>
+                    </div>
+
+                    <div class="product-options">
+                        <label>Sabor:</label>
+                        <select id="sabor-rabito-mix" class="option-select">
+                            <option value="Mix">Mix</option>
+                            <option value="Pollo">Pollo</option>
+                            <option value="Carne">Carne</option>
+                        </select>
+                    </div>
+
+                    <div class="quantity-selector">
+                        <button class="qty-btn minus" onclick="decreaseQty('rabito-mix')">-</button>
+                        <input type="number" id="qty-rabito-mix" value="1" min="1" readonly>
+                        <button class="qty-btn plus" onclick="increaseQty('rabito-mix')">+</button>
+                    </div>
+                    <button class="add-to-cart-btn"
+                        onclick="addToCartWithOptions('rabito-mix', 'Rabito Perro Adulto MIX', 30000, 'assets/Rabito perro Adulto Mix de sabores.png', 'peso-rabito-mix', 'sabor-rabito-mix')">
+                        <i class="fas fa-shopping-cart"></i> Agregar al Carrito
+                    </button>
+                </div>
+
+                <!-- Producto 4: Rabito Perro Cachorro -->
+                <div class="product-card">
+                    <div class="product-image-wrapper">
+                        <img src="assets/Rabito perro cachorro.png" alt="Rabito Perro Cachorro">
+                    </div>
+                    <h3>Rabito Perro Cachorro</h3>
+                    <p class="product-description">Peso a elección</p>
+                    <p class="product-price">Desde $24.000,00</p>
+
+                    <div class="product-options">
+                        <label>Peso:</label>
+                        <select id="peso-rabito-cachorro" class="option-select">
+                            <option value="15kg">15kg</option>
+                            <option value="20kg">20kg</option>
+                        </select>
+                    </div>
+
+                    <div class="quantity-selector">
+                        <button class="qty-btn minus" onclick="decreaseQty('rabito-cachorro')">-</button>
+                        <input type="number" id="qty-rabito-cachorro" value="1" min="1" readonly>
+                        <button class="qty-btn plus" onclick="increaseQty('rabito-cachorro')">+</button>
+                    </div>
+                    <button class="add-to-cart-btn"
+                        onclick="addToCartWithOptions('rabito-cachorro', 'Rabito Perro Cachorro', 24000, 'assets/Rabito perro cachorro.png', 'peso-rabito-cachorro')">
+                        <i class="fas fa-shopping-cart"></i> Agregar al Carrito
+                    </button>
+                </div>
+
+                <!-- Producto 5: Rabito Perro Adulto CARNE -->
+                <div class="product-card">
+                    <div class="product-image-wrapper">
+                        <img src="assets/Rabito perro adulto sabor carne.png" alt="Rabito Perro Adulto CARNE">
+                    </div>
+                    <h3>Rabito Perro Adulto CARNE</h3>
+                    <p class="product-description">Peso y Sabor a elección</p>
+                    <p class="stock-warning">CONSULTE STOCK ANTES DE COMPRAR</p>
+                    <p class="product-price">Desde $30.000,00</p>
+
+                    <div class="product-options">
+                        <label>Peso:</label>
+                        <select id="peso-rabito-carne" class="option-select">
+                            <option value="15kg">15kg</option>
+                            <option value="20kg">20kg</option>
+                            <option value="22kg">22kg</option>
+                        </select>
+                    </div>
+
+                    <div class="product-options">
+                        <label>Sabor:</label>
+                        <select id="sabor-rabito-carne" class="option-select">
+                            <option value="Carne">Carne</option>
+                            <option value="Pollo">Pollo</option>
+                            <option value="Mix">Mix</option>
+                        </select>
+                    </div>
+
+                    <div class="quantity-selector">
+                        <button class="qty-btn minus" onclick="decreaseQty('rabito-carne')">-</button>
+                        <input type="number" id="qty-rabito-carne" value="1" min="1" readonly>
+                        <button class="qty-btn plus" onclick="increaseQty('rabito-carne')">+</button>
+                    </div>
+                    <button class="add-to-cart-btn"
+                        onclick="addToCartWithOptions('rabito-carne', 'Rabito Perro Adulto CARNE', 30000, 'assets/Rabito perro adulto sabor carne.png', 'peso-rabito-carne', 'sabor-rabito-carne')">
+                        <i class="fas fa-shopping-cart"></i> Agregar al Carrito
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
