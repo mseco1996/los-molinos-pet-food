@@ -29,12 +29,14 @@ window.toggleMobileMenu = function () {
             toggleBtnIcon.classList.add('fa-times');
         }
         document.body.style.overflow = 'hidden'; // Lock scroll
+        document.body.classList.add('menu-open'); // Trigger backdrop
     } else {
         if (toggleBtnIcon) {
             toggleBtnIcon.classList.remove('fa-times');
             toggleBtnIcon.classList.add('fa-bars');
         }
         document.body.style.overflow = ''; // Unlock scroll
+        document.body.classList.remove('menu-open'); // Remove backdrop
     }
 };
 
