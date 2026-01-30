@@ -46,6 +46,8 @@
     /* Fallback */
     scrollbar-width: none;
     /* Hide scrollbar Firefox */
+    justify-content: flex-start;
+    /* Ensure left alignment */
 }
 
 .hardy-carousel-track::-webkit-scrollbar {
@@ -55,8 +57,9 @@
 
 /* Slide Item */
 .hardy-carousel-slide {
-    flex: 0 0 100%;
-    min-width: 100%;
+    flex: 0 0 85%;
+    /* Mobile: Show 85% to peek next card */
+    min-width: 85%;
     display: flex;
     justify-content: center;
     padding: 0 var(--spacing-2);
@@ -65,6 +68,7 @@
 @media (min-width: 640px) {
     .hardy-carousel-slide {
         flex: 0 0 50%;
+        /* Tablet: 2 slides */
         min-width: 50%;
     }
 }

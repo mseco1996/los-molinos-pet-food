@@ -21,7 +21,8 @@
 .hero-overlay {
     position: absolute;
     inset: 0;
-    background: linear-gradient(to right, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.3));
+    /* Stronger gradient: Black/60 -> Transparent */
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0.6) 40%, rgba(0, 0, 0, 0.2) 100%);
     z-index: 1;
 }
 

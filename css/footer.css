@@ -162,30 +162,34 @@
 /* Trust Column */
 .trust-badges {
     display: flex;
-    gap: var(--spacing-4);
+    flex-direction: column;
+    gap: var(--spacing-3);
     margin-bottom: var(--spacing-6);
-    flex-wrap: wrap;
 }
 
 .trust-badge {
-    background: rgba(255, 255, 255, 0.05);
-    padding: 8px 14px;
-    border-radius: var(--radius-md);
+    background: transparent;
+    padding: 0;
+    border: none;
     display: flex;
     align-items: center;
     gap: 10px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    font-size: 0.9rem;
+    color: var(--color-gray-400);
 }
 
-.trust-badge i {
-    color: var(--color-secondary);
-    font-size: 1.1rem;
-}
-
-.trust-badge span {
-    font-size: 0.85rem;
-    font-weight: var(--font-bold);
+.trust-badge strong {
     color: var(--color-white);
+    font-weight: 700;
+}
+
+.trust-logo-text {
+    font-weight: 800;
+    letter-spacing: -0.5px;
+    color: var(--color-white);
+    background: rgba(255, 255, 255, 0.1);
+    padding: 4px 10px;
+    border-radius: 4px;
 }
 
 .secure-text {
