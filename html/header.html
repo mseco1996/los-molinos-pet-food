@@ -1,36 +1,81 @@
 <header class="header">
     <!-- Desktop Header (visible on desktop) -->
-    <div id="desktop-header-container"></div>
+    <div class="desktop-header">
+        <div class="header-top-bar">
+            <p>🚚 Retirá GRATIS en tu barrio (CABA y GBA) | Envíos a todo el país</p>
+        </div>
+        <div class="header-content">
+            <a href="#" class="logo-link">
+                <img src="assets/logo lm.png" alt="Los Molinos Deleita" class="logo">
+            </a>
+            <nav class="desktop-nav">
+                <a href="#conocenos"><i class="fas fa-paw"></i> CONOCENOS</a>
+                <a href="#lineas"><i class="fas fa-bone"></i> PRODUCTOS</a>
+                <a href="#puntos-venta"><i class="fas fa-store"></i> PUNTOS DE VENTA</a>
+                <a href="#contacto"><i class="fas fa-envelope"></i> CONTACTO</a>
+            </nav>
+        </div>
+    </div>
 
     <!-- Mobile Header (visible on mobile) -->
-    <div id="mobile-header-container"></div>
+    <div class="mobile-header">
+        <div class="mobile-header-content">
+            <a href="#" class="logo-link">
+                <img src="assets/logo lm.png" alt="Los Molinos Deleita" class="logo">
+            </a>
+
+            <!-- Factory Badge (Mobile) -->
+            <div class="factory-badge-mobile">
+                <i class="fas fa-industry"></i>
+                <span>Directo de<br>Fábrica</span>
+            </div>
+
+            <button class="mobile-menu-toggle" onclick="toggleMobileMenu()" aria-label="Toggle menu">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </div>
 </header>
 
-<!-- Mobile Navigation (outside header, loaded at end of body) -->
-<div id="mobile-nav-container"></div>
+<!-- Mobile Navigation Drawer (Outside header, at end of body) -->
+<!-- Backdrop Overlay -->
+<div class="mobile-backdrop"></div>
 
-<script>
-    // Load header components
-    (function () {
-        // Load desktop header
-        fetch('html/header-desktop.html')
-            .then(response => response.text())
-            .then(html => {
-                document.getElementById('desktop-header-container').innerHTML = html;
-            });
+<!-- Mobile Navigation Menu (Slide-in from right) -->
+<div class="mobile-menu">
+    <!-- Close Button -->
+    <div class="mobile-menu-header">
+        <h2 class="mobile-menu-title">MENÚ</h2>
+        <button type="button" class="mobile-close-button" onclick="toggleMobileMenu()" aria-label="Cerrar menú">
+            <i class="fas fa-times"></i>
+        </button>
+    </div>
 
-        // Load mobile header
-        fetch('html/header-mobile.html')
-            .then(response => response.text())
-            .then(html => {
-                document.getElementById('mobile-header-container').innerHTML = html;
-            });
+    <!-- Menu Items -->
+    <nav class="mobile-menu-nav">
+        <a href="#" data-nav-link class="mobile-nav-item">
+            <i class="fas fa-home"></i>
+            <span>Inicio</span>
+        </a>
 
-        // Load mobile nav (at end of body)
-        fetch('html/mobile-nav.html')
-            .then(response => response.text())
-            .then(html => {
-                document.getElementById('mobile-nav-container').innerHTML = html;
-            });
-    })();
-</script>
+        <a href="#conocenos" data-nav-link class="mobile-nav-item">
+            <i class="fas fa-paw"></i>
+            <span>Conocenos</span>
+        </a>
+
+        <a href="#lineas" data-nav-link class="mobile-nav-item">
+            <i class="fas fa-bone"></i>
+            <span>Productos</span>
+        </a>
+
+        <a href="#puntos-venta" data-nav-link class="mobile-nav-item">
+            <i class="fas fa-map-marker-alt"></i>
+            <span>Puntos de venta</span>
+        </a>
+
+        <a href="#contacto" data-nav-link class="mobile-nav-item">
+            <i class="fas fa-envelope"></i>
+            <span>Contacto</span>
+        </a>
+    </nav>
+</div>
