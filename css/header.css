@@ -68,9 +68,7 @@
 }
 
 /* Shrink logo on scroll for better UX */
-.header.scrolled .logo {
-    height: 55px;
-}
+/* Logo stays constant size on scroll */
 
 .desktop-nav {
     display: flex;
