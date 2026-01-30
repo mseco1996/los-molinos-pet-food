@@ -87,7 +87,14 @@ class HardyCarousel {
     }
 
     getSlideWidth() {
-        return this.container.offsetWidth / this.getSlidesPerView();
+        const slide = this.slides[0];
+        if (!slide) return 0;
+
+        // Calculate width based on actual element + computed gap
+        const style = window.getComputedStyle(this.track);
+        const gap = parseFloat(style.columnGap) || parseFloat(style.gap) || 0;
+
+        return slide.offsetWidth + gap;
     }
 
     getMaxIndex() {
