@@ -126,6 +126,33 @@
     transform: scale(0.95);
 }
 
+/* Factory Badge (Mobile) */
+.factory-badge-mobile {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: linear-gradient(135deg, #C8A961, #b89850);
+    color: white;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    line-height: 1.2;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(200, 169, 97, 0.3);
+    white-space: nowrap;
+}
+
+.factory-badge-mobile i {
+    font-size: 0.9rem;
+    color: white;
+}
+
+.factory-badge-mobile span {
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+}
+
 /* ==========================================
    MOBILE NAVIGATION DRAWER (HARDY STYLE)
    ========================================== */
