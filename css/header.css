@@ -30,14 +30,12 @@
 }
 
 .header-top-bar {
-    background-color: var(--color-secondary);
-    /* Dorado */
-    color: var(--color-black);
-    /* Negro */
+    background-color: var(--color-black);
+    color: var(--color-secondary);
     text-align: center;
     padding: var(--spacing-2) 0;
     font-size: var(--text-sm);
-    font-weight: var(--font-bold);
+    font-weight: var(--font-semibold);
     letter-spacing: 0.5px;
 }
 

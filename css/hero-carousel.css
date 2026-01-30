@@ -32,7 +32,8 @@
     margin: 0 auto;
     position: relative;
     padding: 0 var(--spacing-4);
-    /* Space for arrows on mobile if needed */
+    overflow: hidden;
+    /* Prevent horizontal scroll */
 }
 
 .hardy-carousel-track {
@@ -41,13 +42,9 @@
     cursor: grab;
     touch-action: pan-y;
     transition: transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
-    padding: var(--spacing-4) var(--spacing-2) var(--spacing-12);
-    overflow-x: auto;
-    /* Fallback */
-    scrollbar-width: none;
-    /* Hide scrollbar Firefox */
+    padding: var(--spacing-12) 0 var(--spacing-12);
+    /* Horizontal padding removed */
     justify-content: flex-start;
-    /* Ensure left alignment */
 }
 
 .hardy-carousel-track::-webkit-scrollbar {
@@ -67,16 +64,17 @@
 
 @media (min-width: 640px) {
     .hardy-carousel-slide {
-        flex: 0 0 50%;
-        /* Tablet: 2 slides */
-        min-width: 50%;
+        /* Tablet: 2 slides with 1 gap of 24px */
+        flex: 0 0 calc((100% - var(--spacing-6)) / 2);
+        min-width: calc((100% - var(--spacing-6)) / 2);
     }
 }
 
 @media (min-width: 1024px) {
     .hardy-carousel-slide {
-        flex: 0 0 33.333%;
-        min-width: 33.333%;
+        /* Desktop: 3 slides with 2 gaps of 24px */
+        flex: 0 0 calc((100% - (var(--spacing-6) * 2)) / 3);
+        min-width: calc((100% - (var(--spacing-6) * 2)) / 3);
     }
 }
 

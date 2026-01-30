@@ -47,6 +47,8 @@
     font-size: var(--text-5xl);
     line-height: 1.1;
     font-weight: var(--font-bold);
+    color: var(--color-white);
+    /* Ensure it stays white */
     margin-bottom: var(--spacing-6);
     text-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
     text-transform: uppercase;
