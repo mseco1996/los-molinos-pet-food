@@ -56,9 +56,16 @@
 }
 
 .logo {
-    height: 40px;
+    height: 70px;
+    /* Increased from 40px */
     width: auto;
     filter: brightness(0) invert(1);
+    transition: height var(--transition-base);
+}
+
+/* Shrink logo on scroll for better UX */
+.header.scrolled .logo {
+    height: 55px;
 }
 
 .desktop-nav {
