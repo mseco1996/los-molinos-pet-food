@@ -1040,4 +1040,38 @@ h3 {
     .form-grid {
         grid-template-columns: 1fr;
     }
+
+    /* Fix benefit cards cutoff */
+    .benefits-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        padding: 0 10px;
+    }
+
+    .benefit-card {
+        padding: 25px 15px;
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
+    }
+
+    .benefit-card h3 {
+        font-size: 1.1rem;
+        margin-bottom: 10px;
+    }
+
+    .benefit-card p {
+        font-size: 0.9rem;
+        line-height: 1.5;
+    }
+
+    .benefit-icon-img {
+        width: 60px;
+        height: 60px;
+        margin-bottom: 15px;
+    }
+
+    .benefit-icon-img i {
+        font-size: 1.6rem;
+    }
 }
