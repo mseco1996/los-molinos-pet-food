@@ -1,3 +1,6 @@
+/**
+ * Header Scroll Effect
+ */
 window.initHeaderScroll = function () {
     const header = document.querySelector('.header');
     if (!header) return;
@@ -12,41 +15,79 @@ window.initHeaderScroll = function () {
 };
 
 /**
- * Mobile Menu Toggle System
+ * Mobile Menu Toggle System (Hardy Architecture)
  */
 window.toggleMobileMenu = function () {
-    const nav = document.querySelector('.nav');
-    const toggleBtnIcon = document.querySelector('.mobile-menu-toggle i');
+    const mobileNav = document.querySelector('.mobile-nav');
+    const backdrop = document.querySelector('.mobile-backdrop');
+    const toggleBtn = document.querySelector('.mobile-menu-toggle');
+    const closeBtn = document.querySelector('.mobile-nav-close');
 
-    if (!nav) return;
+    if (!mobileNav || !backdrop) return;
 
-    nav.classList.toggle('active');
+    // Toggle active states
+    const isOpen = mobileNav.classList.contains('active');
 
-    // Toggle icon and body scroll
-    if (nav.classList.contains('active')) {
-        if (toggleBtnIcon) {
-            toggleBtnIcon.classList.remove('fa-bars');
-            toggleBtnIcon.classList.add('fa-times');
+    if (isOpen) {
+        // Close menu
+        mobileNav.classList.remove('active');
+        backdrop.classList.remove('active');
+        document.body.classList.remove('menu-open');
+        document.body.style.overflow = '';
+
+        // Update icon
+        if (toggleBtn) {
+            const icon = toggleBtn.querySelector('i');
+            if (icon) {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
         }
-        document.body.style.overflow = 'hidden'; // Lock scroll
-        document.body.classList.add('menu-open'); // Trigger backdrop
     } else {
-        if (toggleBtnIcon) {
-            toggleBtnIcon.classList.remove('fa-times');
-            toggleBtnIcon.classList.add('fa-bars');
+        // Open menu
+        mobileNav.classList.add('active');
+        backdrop.classList.add('active');
+        document.body.classList.add('menu-open');
+        document.body.style.overflow = 'hidden';
+
+        // Update icon
+        if (toggleBtn) {
+            const icon = toggleBtn.querySelector('i');
+            if (icon) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            }
         }
-        document.body.style.overflow = ''; // Unlock scroll
-        document.body.classList.remove('menu-open'); // Remove backdrop
     }
 };
 
-// Close mobile menu when clicking a link
-document.addEventListener('click', function (e) {
-    if (e.target.closest('.nav a')) {
-        const nav = document.querySelector('.nav');
-        // Only close if it's actually open (mobile mode)
-        if (nav && nav.classList.contains('active')) {
-            window.toggleMobileMenu();
+/**
+ * Close menu when clicking on a link
+ */
+document.addEventListener('DOMContentLoaded', function () {
+    // Wait for mobile nav to be loaded
+    setTimeout(function () {
+        const mobileNavLinks = document.querySelectorAll('.mobile-nav-links a');
+
+        mobileNavLinks.forEach(link => {
+            link.addEventListener('click', function () {
+                const mobileNav = document.querySelector('.mobile-nav');
+                if (mobileNav && mobileNav.classList.contains('active')) {
+                    toggleMobileMenu();
+                }
+            });
+        });
+    }, 500);
+});
+
+/**
+ * Close menu on ESC key
+ */
+document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') {
+        const mobileNav = document.querySelector('.mobile-nav');
+        if (mobileNav && mobileNav.classList.contains('active')) {
+            toggleMobileMenu();
         }
     }
 });
