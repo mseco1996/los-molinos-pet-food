@@ -53,6 +53,10 @@
     display: flex;
     align-items: center;
     flex-shrink: 0;
+    order: 0;
+    /* Ensure it's first */
+    margin-right: auto;
+    /* Push nav to the right */
 }
 
 .logo {
@@ -72,6 +76,8 @@
     display: flex;
     align-items: center;
     gap: var(--spacing-8);
+    order: 2;
+    /* Force second position */
 }
 
 .desktop-nav a {
