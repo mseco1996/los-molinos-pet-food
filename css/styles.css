@@ -1036,4 +1036,8 @@ h3 {
     .contact-section h2 {
         font-size: 1.8rem;
     }
+
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
 }
