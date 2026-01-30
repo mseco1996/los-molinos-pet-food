@@ -1,6 +1,6 @@
 /**
  * Product Carousel Logic (Hardy Architecture)
- * Handles swipe gestures, resistance, and snapping
+ * Handles swipe gestures, resistance, snapping AND Arrow Navigation
  */
 
 class HardyCarousel {
@@ -12,6 +12,10 @@ class HardyCarousel {
         this.slides = Array.from(this.track.children);
         this.indicatorsContainer = document.getElementById('hardyIndicators');
 
+        // Navigation Buttons
+        this.prevBtn = this.container.querySelector('.prev-btn');
+        this.nextBtn = this.container.querySelector('.next-btn');
+
         // State
         this.isDragging = false;
         this.startPos = 0;
@@ -21,13 +25,13 @@ class HardyCarousel {
         this.animationID = 0;
 
         // Configuration
-        this.threshold = 50; // Drag threshold to snap
+        this.threshold = 50;
 
         this.init();
     }
 
     init() {
-        // Event Listeners
+        // Touch / Mouse Events
         this.track.addEventListener('touchstart', this.touchStart.bind(this));
         this.track.addEventListener('touchend', this.touchEnd.bind(this));
         this.track.addEventListener('touchmove', this.touchMove.bind(this));
@@ -37,15 +41,41 @@ class HardyCarousel {
         this.track.addEventListener('mouseleave', this.touchEnd.bind(this));
         this.track.addEventListener('mousemove', this.touchMove.bind(this));
 
-        // Prevent context menu on images
         this.track.querySelectorAll('img').forEach(img => {
             img.addEventListener('dragstart', (e) => e.preventDefault());
         });
 
-        // Resize observer to handle responsiveness
+        // Resize Observer
         window.addEventListener('resize', this.updateDimensions.bind(this));
 
-        // Initialize indicators
+        // Arrow Navigation
+        if (this.prevBtn) {
+            this.prevBtn.addEventListener('click', () => {
+                if (this.currentIndex > 0) {
+                    this.currentIndex--;
+                    this.setPositionByIndex();
+                } else {
+                    // Loop to end (optional) or bounce effect
+                    this.currentIndex = this.getMaxIndex(); // Loop to last
+                    this.setPositionByIndex();
+                }
+            });
+        }
+
+        if (this.nextBtn) {
+            this.nextBtn.addEventListener('click', () => {
+                if (this.currentIndex < this.getMaxIndex()) {
+                    this.currentIndex++;
+                    this.setPositionByIndex();
+                } else {
+                    // Loop to start
+                    this.currentIndex = 0;
+                    this.setPositionByIndex();
+                }
+            });
+        }
+
+        // Init state
         this.createIndicators();
         this.updateIndicators();
     }
@@ -61,7 +91,10 @@ class HardyCarousel {
     }
 
     getMaxIndex() {
-        return this.slides.length - this.getSlidesPerView();
+        // Total positions = Total Slides - Slides Per View + 1 ???
+        // Actually, simple carousel logic: index 0 to (Total - SlidesPerView)
+        // If we have 5 slides and show 3, max index is 2 (shows 3,4,5).
+        return Math.max(0, this.slides.length - this.getSlidesPerView());
     }
 
     touchStart(index) {
@@ -70,6 +103,7 @@ class HardyCarousel {
             this.startPos = this.getPositionX(event);
             this.animationID = requestAnimationFrame(this.animation.bind(this));
             this.track.style.cursor = 'grabbing';
+            this.track.style.transition = 'none'; // Disable transition for drag
         }
     }
 
@@ -112,19 +146,11 @@ class HardyCarousel {
 
     setPositionByIndex() {
         const slideWidth = this.getSlideWidth();
-        // Calculate snap position
         this.currentTranslate = this.currentIndex * -slideWidth;
         this.prevTranslate = this.currentTranslate;
 
-        // Apply transform with transition
         this.track.style.transition = 'transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1)';
         this.setSliderPosition();
-
-        // Reset transition after animation
-        setTimeout(() => {
-            if (this.isDragging) this.track.style.transition = 'none';
-        }, 300);
-
         this.updateIndicators();
     }
 
@@ -132,10 +158,13 @@ class HardyCarousel {
         if (!this.indicatorsContainer) return;
         this.indicatorsContainer.innerHTML = '';
 
-        // Create an indicator for each possible starting position
-        const totalDots = this.slides.length - this.getSlidesPerView() + 1;
+        // Dots: one for each possible start position
+        // If 5 slides, view 1 -> 5 dots (indices 0,1,2,3,4)
+        // If 5 slides, view 3 -> 3 dots (indices 0,1,2) -> shows [0,1,2], [1,2,3], [2,3,4]
 
-        for (let i = 0; i < totalDots; i++) {
+        const maxIdx = this.getMaxIndex();
+
+        for (let i = 0; i <= maxIdx; i++) {
             const dot = document.createElement('div');
             dot.classList.add('h-indicator');
             dot.addEventListener('click', () => {
@@ -156,23 +185,24 @@ class HardyCarousel {
     }
 
     updateDimensions() {
-        // Re-calculate position on resize to keep correct slide in view
-        this.track.style.transition = 'none'; // Disable transition for resize
+        this.track.style.transition = 'none';
+
+        // Ensure index is valid for new view count
+        const maxIdx = this.getMaxIndex();
+        if (this.currentIndex > maxIdx) this.currentIndex = maxIdx;
+
         this.setPositionByIndex();
-        this.createIndicators(); // Re-create indicators as pages might change
+        this.createIndicators();
         this.updateIndicators();
     }
 }
 
-// Initialize when DOM is ready or component loaded
 function initProductCarousel() {
     new HardyCarousel('.hardy-carousel-container', 'hardyCarouselTrack');
 }
 
-// Expose to window for loader
 window.initProductCarousel = initProductCarousel;
 
-// Auto-init if DOM ready
 if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', initProductCarousel);
 } else {

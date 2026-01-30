@@ -1,5 +1,5 @@
 /* ==========================================
-   PRODUCT CAROUSEL (HARDY ARCHITECTURE - DARK MODE)
+   PRODUCT CAROUSEL (HARDY ARCHITECTURE - READABILITY FIX)
    ========================================== */
 
 .product-line-section {
@@ -31,7 +31,8 @@
     width: 100%;
     margin: 0 auto;
     position: relative;
-    overflow: hidden;
+    padding: 0 var(--spacing-4);
+    /* Space for arrows on mobile if needed */
 }
 
 .hardy-carousel-track {
@@ -40,12 +41,16 @@
     cursor: grab;
     touch-action: pan-y;
     transition: transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
-    padding: var(--spacing-4) var(--spacing-4) var(--spacing-12);
+    padding: var(--spacing-4) var(--spacing-2) var(--spacing-12);
+    overflow-x: auto;
+    /* Fallback */
+    scrollbar-width: none;
+    /* Hide scrollbar Firefox */
 }
 
-.hardy-carousel-track:active {
-    cursor: grabbing;
-    transition: none;
+.hardy-carousel-track::-webkit-scrollbar {
+    display: none;
+    /* Hide scrollbar Chrome/Safari */
 }
 
 /* Slide Item */
@@ -71,13 +76,13 @@
     }
 }
 
-/* Product Card - Dark Mode (Deleita Branding) */
+/* Product Card - High Contrast Light Mode */
 .product-card {
-    background: var(--color-primary);
-    /* #0B2A1F */
+    background: var(--color-white);
     border-radius: var(--radius-2xl);
-    padding: var(--spacing-6);
-    box-shadow: var(--shadow-xl);
+    padding: var(--spacing-8);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    /* Soft shadow */
     transition: all var(--transition-bounce);
     width: 100%;
     max-width: 380px;
@@ -86,28 +91,28 @@
     align-items: center;
     text-align: center;
     position: relative;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    overflow: hidden;
+    border: 1px solid rgba(200, 169, 97, 0.3);
+    /* Subtle Gold Border */
 }
 
 .product-card:hover {
     transform: translateY(-10px);
-    box-shadow: 0 20px 40px -10px rgba(11, 42, 31, 0.5);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
     border-color: var(--color-secondary);
 }
 
-/* Badge */
+/* Badges */
 .best-seller-badge {
     position: absolute;
     top: 20px;
     right: 20px;
     background: linear-gradient(135deg, var(--color-secondary), var(--color-secondary-dark));
     color: var(--color-black);
-    padding: 4px 12px;
+    padding: 6px 14px;
     border-radius: var(--radius-full);
     font-size: 0.75rem;
     font-weight: var(--font-extrabold);
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    box-shadow: var(--shadow-sm);
     z-index: 10;
     text-transform: uppercase;
     letter-spacing: 0.5px;
@@ -122,45 +127,35 @@
     justify-content: center;
     margin-bottom: var(--spacing-6);
     position: relative;
-}
-
-/* Glow effect behind image */
-.product-image-container::before {
-    content: '';
-    position: absolute;
-    width: 60%;
-    height: 60%;
-    background: radial-gradient(circle, rgba(255, 255, 255, 0.15) 0%, transparent 70%);
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 0;
+    z-index: 1;
 }
 
 .product-image-container img {
     max-height: 100%;
     width: auto;
-    filter: drop-shadow(0 15px 25px rgba(0, 0, 0, 0.5));
+    filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.1));
     transition: transform var(--transition-base);
-    z-index: 1;
 }
 
 .product-card:hover .product-image-container img {
-    transform: scale(1.08) translateY(-5px);
+    transform: scale(1.05);
 }
 
-/* Content */
+/* Content & Logic Typography */
 .product-card h3 {
-    font-family: var(--font-header);
-    color: var(--color-white);
-    font-size: 1.15rem;
+    font-family: var(--font-display);
+    color: var(--color-primary);
+    /* Dark Green Text */
+    font-size: 1.4rem;
+    /* Larger Title */
     font-weight: 700;
-    margin-bottom: var(--spacing-4);
-    min-height: 56px;
+    margin-bottom: var(--spacing-6);
+    min-height: 60px;
     display: flex;
     align-items: center;
     justify-content: center;
-    line-height: 1.3;
+    line-height: 1.2;
+    text-transform: uppercase;
 }
 
 .product-features {
@@ -169,37 +164,36 @@
     width: 100%;
     margin-bottom: var(--spacing-6);
     flex-grow: 1;
-    background: rgba(255, 255, 255, 0.05);
-    padding: var(--spacing-4);
-    border-radius: var(--radius-lg);
+    /* No background, just clean text */
 }
 
 .product-features li {
-    font-size: 0.9rem;
-    color: var(--color-gray-200);
-    /* Lighter text for dark bg */
-    margin-bottom: var(--spacing-2);
+    font-size: 1rem;
+    /* Base size */
+    color: #374151;
+    /* Gray-700: High Contrast */
+    margin-bottom: var(--spacing-3);
     display: flex;
-    align-items: center;
-}
-
-.product-features li:last-child {
-    margin-bottom: 0;
+    align-items: flex-start;
+    line-height: 1.5;
 }
 
 .product-features li i {
-    color: var(--color-secondary);
-    margin-right: 10px;
-    font-size: 0.8rem;
+    color: var(--color-secondary-dark);
+    /* Dark Gold for visibility */
+    margin-top: 4px;
+    margin-right: 12px;
     flex-shrink: 0;
+    font-size: 0.9em;
 }
 
 /* Nutrition Text */
 .nutrition-info {
-    font-size: 0.75rem;
-    color: rgba(255, 255, 255, 0.5);
+    font-size: 0.85rem;
+    color: #6B7280;
+    /* Gray-500 */
     margin-bottom: var(--spacing-4);
-    font-style: italic;
+    font-weight: 600;
 }
 
 /* Button */
@@ -207,13 +201,13 @@
     width: 100%;
     padding: 14px 20px;
     background: transparent;
-    color: var(--color-secondary);
+    color: var(--color-primary);
     border: 2px solid var(--color-secondary);
     font-family: var(--font-header);
     font-weight: var(--font-bold);
     text-transform: uppercase;
     border-radius: var(--radius-full);
-    font-size: 0.85rem;
+    font-size: 0.9rem;
     transition: all var(--transition-base);
     display: flex;
     align-items: center;
@@ -224,8 +218,55 @@
 .btn-product:hover {
     background: var(--color-secondary);
     color: var(--color-primary);
-    box-shadow: 0 5px 15px rgba(200, 169, 97, 0.3);
+    box-shadow: 0 4px 12px rgba(200, 169, 97, 0.4);
     transform: translateY(-2px);
+}
+
+/* Navigation Arrows */
+.carousel-nav-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 48px;
+    height: 48px;
+    background: white;
+    border: 1px solid var(--color-gray-200);
+    border-radius: 50%;
+    color: var(--color-primary);
+    font-size: 1.2rem;
+    z-index: 20;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.carousel-nav-btn:hover {
+    background: var(--color-secondary);
+    border-color: var(--color-secondary);
+    color: white;
+    transform: translateY(-50%) scale(1.1);
+}
+
+.carousel-nav-btn.prev-btn {
+    left: 0;
+}
+
+.carousel-nav-btn.next-btn {
+    right: 0;
+}
+
+/* Hide arrows on very small screens if they cover content, 
+   but since card has padding, they should be fine on edges */
+@media (max-width: 480px) {
+    .carousel-nav-btn {
+        width: 40px;
+        height: 40px;
+        font-size: 1rem;
+        background: rgba(255, 255, 255, 0.9);
+    }
 }
 
 /* Indicators */
@@ -233,12 +274,12 @@
     display: flex;
     justify-content: center;
     gap: 8px;
-    margin-top: var(--spacing-6);
+    margin-top: var(--spacing-2);
 }
 
 .h-indicator {
-    width: 8px;
-    height: 8px;
+    width: 10px;
+    height: 10px;
     border-radius: 50%;
     background-color: var(--color-gray-300);
     cursor: pointer;
@@ -246,8 +287,8 @@
 }
 
 .h-indicator.active {
-    background-color: var(--color-secondary);
-    /* Gold */
-    width: 24px;
+    background-color: var(--color-primary);
+    /* Green active dot */
+    width: 28px;
     border-radius: 10px;
 }
