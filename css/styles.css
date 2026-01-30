@@ -876,7 +876,8 @@ h3 {
         height: 100dvh;
         width: 320px;
         max-width: 85vw;
-        background-color: #ffffff;
+        background-color: #1A3C34;
+        /* Dark Green Brand Color */
         z-index: 70;
         padding: 80px 30px 30px;
         align-items: flex-start;
@@ -890,17 +891,17 @@ h3 {
         transform: translateX(0);
     }
 
-    /* Backdrop Overlay (body.menu-open::after) handled below */
-
     /* Nav Links */
     .nav a {
         font-family: 'Inter', 'Montserrat', sans-serif;
         font-size: 1.1rem;
-        color: #1f2937;
+        color: white;
+        /* White text requested */
         font-weight: 500;
         width: 100%;
         padding: 16px 0;
-        border-bottom: 1px solid #f3f4f6;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        /* Subtle separator */
         display: flex;
         align-items: center;
         gap: 16px;
@@ -912,31 +913,33 @@ h3 {
         text-align: center;
     }
 
-    /* 3. Hero & Content Padding */
+    /* 3. Hero & Content Padding (Compact for Small Screens) */
     .hero-content {
-        padding-top: 120px;
-        /* Space from header */
-        padding-bottom: 80px;
+        padding-top: 90px;
+        /* Reduced from 120px to fit buttons */
+        padding-bottom: 30px;
         text-align: center;
     }
 
     .hero-text h1 {
         font-family: 'Montserrat', sans-serif;
-        font-size: 1.875rem;
-        line-height: 1.25;
+        font-size: 1.8rem;
+        line-height: 1.2;
         font-weight: 800;
         color: white;
-        margin-bottom: 30px;
-        /* Space before text/buttons */
+        margin-bottom: 12px;
+        /* Tighter spacing */
         text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
         text-transform: uppercase;
     }
 
     .hero-text p {
         font-family: 'Inter', sans-serif;
-        font-size: 1rem;
-        line-height: 1.6;
-        margin-bottom: 32px;
+        font-size: 0.95rem;
+        /* Slightly smaller */
+        line-height: 1.5;
+        margin-bottom: 20px;
+        /* Tighter spacing */
         padding: 0 10px;
         color: white;
         text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
@@ -949,7 +952,8 @@ h3 {
         padding: 0;
         display: flex;
         flex-direction: column;
-        gap: 16px;
+        gap: 12px;
+        /* Tighter gap */
     }
 
     .btn-primary,
