@@ -905,7 +905,8 @@ h3 {
 
         /* 4. Typography & Spacing */
         .hero-content {
-            padding-top: 140px;
+            padding-top: 180px;
+            /* Increased from 140px for more air */
             padding-bottom: 60px;
             text-align: center;
         }
@@ -934,13 +935,18 @@ h3 {
             align-items: center;
             justify-content: center;
             text-align: center;
-            height: 55px;
-            padding: 0 20px;
+            min-height: 55px;
+            /* Ensure minimum size */
+            height: auto;
+            /* Allow growth for wrapped text */
+            padding: 15px 20px;
+            /* Internal breathing room */
             border-radius: 8px;
             font-family: 'Montserrat', sans-serif;
             font-weight: 700;
             font-size: 0.9rem;
             width: 100%;
+            line-height: 1.3;
         }
 
         .hero-buttons {
