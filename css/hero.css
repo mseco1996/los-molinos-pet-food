@@ -193,7 +193,7 @@
     }
 
     .hero-buttons {
-        gap: var(--spacing-3);
+        gap: var(--spacing-4);
         max-width: 100%;
     }
 

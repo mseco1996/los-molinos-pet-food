@@ -1,143 +1,195 @@
 /* ==========================================
-   FOOTER
+   FOOTER (HARDY ARCHITECTURE - DELEITA BRANDING)
    ========================================== */
+
 .footer {
-    background: #1A3C34;
-    color: white;
-    padding: 50px 0 0;
+    background-color: var(--color-primary-dark);
+    color: var(--color-white);
+    padding: var(--spacing-16) 0 0;
+    margin-top: auto;
+    font-family: var(--font-body);
 }
 
 .footer-content {
     max-width: 1400px;
     margin: 0 auto;
-    padding: 0 40px 40px;
+    padding: 0 var(--spacing-6) var(--spacing-12);
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--spacing-12);
+}
+
+@media (min-width: 768px) {
+    .footer-content {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 1024px) {
+    .footer-content {
+        grid-template-columns: 2fr 1fr 1.5fr 1.5fr;
+    }
+}
+
+/* Columns */
+.footer-column h3 {
+    font-family: var(--font-header);
+    color: var(--color-secondary);
+    font-size: var(--text-lg);
+    margin-bottom: var(--spacing-6);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Brand Column */
+.brand-col .footer-logo {
+    height: 60px;
+    width: auto;
+    margin-bottom: var(--spacing-6);
+    filter: brightness(0) invert(1);
+    /* Make logo white */
+}
+
+.footer-description {
+    color: var(--color-gray-400);
+    margin-bottom: var(--spacing-6);
+    line-height: 1.6;
+    max-width: 300px;
+}
+
+.social-links {
     display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    gap: 60px;
-    border-bottom: 1px solid rgba(200, 169, 97, 0.3);
+    gap: var(--spacing-4);
 }
 
-.footer-left h3,
-.footer-right h3 {
-    font-family: 'Libre Baskerville', serif;
-    font-size: 1.2rem;
-    color: #C8A961;
-    margin-bottom: 20px;
-    letter-spacing: 2px;
-}
-
-.footer-address,
-.footer-location,
-.footer-phone {
-    font-size: 1rem;
-    color: rgba(255, 255, 255, 0.9);
-    margin: 8px 0;
-    font-family: 'Source Sans Pro', sans-serif;
-}
-
-.footer-phone {
-    color: #C8A961;
-    font-weight: 600;
-    margin-top: 15px;
-}
-
-/* Social Icons */
-.social-icons {
-    display: flex;
-    gap: 15px;
-    margin-top: 20px;
-}
-
-.social-icon {
-    width: 45px;
-    height: 45px;
+.social-links a {
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
-    background: #C8A961;
+    background: rgba(255, 255, 255, 0.1);
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #1A3C34;
-    font-size: 1.3rem;
-    transition: all 0.3s ease;
-    text-decoration: none;
+    color: var(--color-white);
+    transition: all var(--transition-fast);
 }
 
-.social-icon:hover {
-    background: #b89850;
-    transform: translateY(-5px);
-    box-shadow: 0 5px 15px rgba(200, 169, 97, 0.4);
+.social-links a:hover {
+    background: var(--color-secondary);
+    color: var(--color-primary);
+    transform: translateY(-3px);
 }
 
-/* Trust Logos */
-.footer-trust {
-    margin-top: 30px;
+/* Links List */
+.footer-links,
+.footer-contact {
+    list-style: none;
+}
+
+.footer-links li {
+    margin-bottom: var(--spacing-3);
+}
+
+.footer-links a {
+    color: var(--color-gray-400);
+    transition: all var(--transition-fast);
+}
+
+.footer-links a:hover {
+    color: var(--color-secondary);
+    padding-left: 5px;
+}
+
+/* Contact List */
+.footer-contact li {
     display: flex;
-    flex-direction: column;
-    gap: 20px;
+    align-items: flex-start;
+    gap: var(--spacing-3);
+    margin-bottom: var(--spacing-4);
+    color: var(--color-gray-400);
 }
 
-.trust-block h4 {
-    font-size: 0.9rem;
-    color: #C8A961;
-    margin-bottom: 10px;
-    letter-spacing: 1px;
-    font-weight: 700;
+.footer-contact i {
+    color: var(--color-secondary);
+    margin-top: 4px;
 }
 
-.trust-icons {
+/* Trust Column */
+.trust-badges {
     display: flex;
-    gap: 15px;
-    align-items: center;
+    gap: var(--spacing-4);
+    margin-bottom: var(--spacing-6);
     flex-wrap: wrap;
 }
 
-.trust-icons i {
-    font-size: 2rem;
-    color: rgba(255, 255, 255, 0.6);
+.trust-badge {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 10px 16px;
+    border-radius: var(--radius-lg);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-.trust-text {
-    font-size: 0.85rem;
-    font-weight: 700;
-    color: rgba(255, 255, 255, 0.6);
+.trust-badge i {
+    color: var(--color-secondary);
+    font-size: 1.2rem;
+}
+
+.trust-badge span {
+    font-size: var(--text-sm);
+    font-weight: var(--font-bold);
+    color: var(--color-white);
+}
+
+.secure-text {
+    font-size: var(--text-sm);
+    color: var(--color-gray-500);
     display: flex;
     align-items: center;
     gap: 8px;
 }
 
-.trust-text i {
-    font-size: 1rem;
+.secure-text i {
+    color: #2ecc71;
+    /* Green lock */
 }
 
-/* Footer Bottom */
+/* Bottom Bar */
 .footer-bottom {
+    background-color: #051510;
+    /* Darker than footer bg */
+    padding: var(--spacing-6);
     text-align: center;
-    padding: 25px 40px;
-    background: rgba(0, 0, 0, 0.2);
+    font-size: var(--text-sm);
+    color: var(--color-gray-600);
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-2);
 }
 
-.footer-bottom p {
-    font-size: 0.9rem;
-    color: rgba(255, 255, 255, 0.7);
-    margin: 0;
-    font-family: 'Source Sans Pro', sans-serif;
+.dev-credit i {
+    color: #e74c3c;
+    animation: heartbeat 1.5s infinite;
 }
 
-/* Responsive Footer */
-@media (max-width: 768px) {
-    .footer-content {
-        flex-direction: column;
-        gap: 40px;
-        text-align: center;
+@keyframes heartbeat {
+
+    0%,
+    100% {
+        transform: scale(1);
     }
 
-    .footer-left,
-    .footer-right {
-        width: 100%;
+    50% {
+        transform: scale(1.1);
     }
+}
 
-    .social-icons {
-        justify-content: center;
+@media (min-width: 768px) {
+    .footer-bottom {
+        flex-direction: row;
+        justify-content: space-between;
+        padding: var(--spacing-6) var(--spacing-12);
     }
 }
