@@ -45,9 +45,11 @@ async function initApp() {
     // Header Scroll
     if (window.initHeaderScroll) window.initHeaderScroll();
 
-    // Carousel
-    // Just ensure it's in a valid state (updateCarousel handles null check)
-    if (window.updateCarousel) window.updateCarousel();
+    // Product Carousel (Hardy Architecture)
+    if (window.initProductCarousel) {
+        console.log('Initializing Hardy Carousel...');
+        window.initProductCarousel();
+    }
 
     // Re-initialize any other libs if needed (e.g. if tabs need init, but they seem to use onclick inline)
 
