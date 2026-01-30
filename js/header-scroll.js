@@ -18,64 +18,106 @@ window.initHeaderScroll = function () {
  * Mobile Menu Toggle System (Hardy Architecture)
  */
 window.toggleMobileMenu = function () {
-    const mobileNav = document.querySelector('.mobile-nav');
+    const mobileMenu = document.querySelector('.mobile-menu');
     const backdrop = document.querySelector('.mobile-backdrop');
-    const toggleBtn = document.querySelector('.mobile-menu-toggle');
-    const closeBtn = document.querySelector('.mobile-nav-close');
 
-    if (!mobileNav || !backdrop) return;
+    if (!mobileMenu || !backdrop) return;
 
     // Toggle active states
-    const isOpen = mobileNav.classList.contains('active');
+    const isOpen = mobileMenu.classList.contains('menu-open');
 
     if (isOpen) {
-        // Close menu
-        mobileNav.classList.remove('active');
-        backdrop.classList.remove('active');
-        document.body.classList.remove('menu-open');
-        document.body.style.overflow = '';
-
-        // Update icon
-        if (toggleBtn) {
-            const icon = toggleBtn.querySelector('i');
-            if (icon) {
-                icon.classList.remove('fa-times');
-                icon.classList.add('fa-bars');
-            }
-        }
+        closeMenu();
     } else {
-        // Open menu
-        mobileNav.classList.add('active');
-        backdrop.classList.add('active');
-        document.body.classList.add('menu-open');
-        document.body.style.overflow = 'hidden';
-
-        // Update icon
-        if (toggleBtn) {
-            const icon = toggleBtn.querySelector('i');
-            if (icon) {
-                icon.classList.remove('fa-bars');
-                icon.classList.add('fa-times');
-            }
-        }
+        openMenu();
     }
 };
 
+function openMenu() {
+    const mobileMenu = document.querySelector('.mobile-menu');
+    const backdrop = document.querySelector('.mobile-backdrop');
+
+    mobileMenu?.classList.add('menu-open');
+    backdrop?.classList.add('backdrop-open');
+    document.body.classList.add('menu-open');
+    document.body.style.overflow = 'hidden'; // Prevent background scroll
+
+    // Update hamburger icon to X
+    const toggleBtn = document.querySelector('.mobile-menu-toggle');
+    if (toggleBtn) {
+        const icon = toggleBtn.querySelector('i');
+        if (icon) {
+            icon.classList.remove('fa-bars');
+            icon.classList.add('fa-times');
+        }
+    }
+}
+
+function closeMenu() {
+    const mobileMenu = document.querySelector('.mobile-menu');
+    const backdrop = document.querySelector('.mobile-backdrop');
+
+    mobileMenu?.classList.remove('menu-open');
+    backdrop?.classList.remove('backdrop-open');
+    document.body.classList.remove('menu-open');
+    document.body.style.overflow = ''; // Restore scroll
+
+    // Update X icon back to hamburger
+    const toggleBtn = document.querySelector('.mobile-menu-toggle');
+    if (toggleBtn) {
+        const icon = toggleBtn.querySelector('i');
+        if (icon) {
+            icon.classList.remove('fa-times');
+            icon.classList.add('fa-bars');
+        }
+    }
+}
+
 /**
- * Close menu when clicking on a link
+ * Update active nav link based on current section
+ */
+function updateActiveNavLink() {
+    const currentPath = window.location.hash || '#';
+    const navLinks = document.querySelectorAll('[data-nav-link]');
+
+    navLinks.forEach((link) => {
+        const href = link.getAttribute('href');
+        if (href === currentPath || (currentPath === '' && href === '#')) {
+            link.classList.add('active');
+        } else {
+            link.classList.remove('active');
+        }
+    });
+}
+
+/**
+ * Initialize on DOM ready
  */
 document.addEventListener('DOMContentLoaded', function () {
     // Wait for mobile nav to be loaded
     setTimeout(function () {
-        const mobileNavLinks = document.querySelectorAll('.mobile-nav-links a');
+        const navLinks = document.querySelectorAll('[data-nav-link]');
+        const backdrop = document.querySelector('.mobile-backdrop');
 
-        mobileNavLinks.forEach(link => {
+        // Update active link on page load
+        updateActiveNavLink();
+
+        // Update active link when hash changes
+        window.addEventListener('hashchange', updateActiveNavLink);
+
+        // Close menu when clicking on a link
+        navLinks.forEach(link => {
             link.addEventListener('click', function () {
-                const mobileNav = document.querySelector('.mobile-nav');
-                if (mobileNav && mobileNav.classList.contains('active')) {
-                    toggleMobileMenu();
+                const mobileMenu = document.querySelector('.mobile-menu');
+                if (mobileMenu && mobileMenu.classList.contains('menu-open')) {
+                    closeMenu();
                 }
             });
+        });
+
+        // Close menu when clicking backdrop
+        backdrop?.addEventListener('click', function () {
+            closeMenu();
         });
     }, 500);
 });
@@ -85,9 +127,9 @@ document.addEventListener('DOMContentLoaded', function () {
  */
 document.addEventListener('keydown', function (e) {
     if (e.key === 'Escape') {
-        const mobileNav = document.querySelector('.mobile-nav');
-        if (mobileNav && mobileNav.classList.contains('active')) {
-            toggleMobileMenu();
+        const mobileMenu = document.querySelector('.mobile-menu');
+        if (mobileMenu && mobileMenu.classList.contains('menu-open')) {
+            closeMenu();
         }
     }
 });

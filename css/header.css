@@ -1,5 +1,5 @@
 /* ==========================================
-   HEADER - HARDY ARCHITECTURE
+   HEADER - HARDY ARCHITECTURE (DELEITA BRANDING)
    ========================================== */
 
 /* Base Header Styles */
@@ -44,11 +44,9 @@
     align-items: center;
     justify-content: space-between;
     height: 64px;
-    /* h-16 */
     max-width: 1400px;
     margin: 0 auto;
     padding: 0 24px;
-    /* px-6 */
 }
 
 .logo-link {
@@ -61,14 +59,12 @@
     height: 40px;
     width: auto;
     filter: brightness(0) invert(1);
-    /* White logo */
 }
 
 .desktop-nav {
     display: flex;
     align-items: center;
     gap: 32px;
-    /* gap-8 */
 }
 
 .desktop-nav a {
@@ -104,9 +100,7 @@
     align-items: center;
     justify-content: space-between;
     height: 64px;
-    /* h-16 */
     padding: 0 24px;
-    /* px-6 */
 }
 
 .mobile-menu-toggle {
@@ -118,7 +112,6 @@
     background: none;
     border: none;
     color: #C8A961;
-    /* Gold for contrast */
     font-size: 1.5rem;
     cursor: pointer;
     transition: transform 0.2s ease;
@@ -134,8 +127,10 @@
 }
 
 /* ==========================================
-   MOBILE NAVIGATION DRAWER
+   MOBILE NAVIGATION DRAWER (HARDY STYLE)
    ========================================== */
+
+/* Backdrop Overlay */
 .mobile-backdrop {
     position: fixed;
     inset: 0;
@@ -144,43 +139,58 @@
     -webkit-backdrop-filter: blur(4px);
     z-index: 60;
     opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.3s ease;
+    visibility: hidden;
+    transition: all 0.3s ease;
 }
 
-.mobile-backdrop.active {
+.mobile-backdrop.backdrop-open {
     opacity: 1;
-    pointer-events: auto;
+    visibility: visible;
 }
 
-.mobile-nav {
+/* Mobile Menu Drawer */
+.mobile-menu {
     position: fixed;
     top: 0;
     right: 0;
     height: 100vh;
     width: 320px;
     max-width: 85vw;
-    background-color: #0B2A1F;
-    /* Deleita Dark Green */
+    background-color: #ffffff;
+    /* White background for readability */
     z-index: 70;
     transform: translateX(100%);
     transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-    box-shadow: -10px 0 40px rgba(0, 0, 0, 0.5);
+    box-shadow: -10px 0 40px rgba(0, 0, 0, 0.3);
     overflow-y: auto;
-}
-
-.mobile-nav.active {
-    transform: translateX(0);
-}
-
-.mobile-nav-header {
     display: flex;
-    justify-content: flex-end;
-    padding: 20px 24px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    flex-direction: column;
 }
 
-.mobile-nav-close {
+.mobile-menu.menu-open {
+    transform: translateX(0) !important;
+}
+
+/* Menu Header */
+.mobile-menu-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 24px;
+    border-bottom: 1px solid #e5e5e5;
+    flex-shrink: 0;
+}
+
+.mobile-menu-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #0B2A1F;
+    /* Deleita Dark Green */
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.mobile-close-button {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -188,44 +198,97 @@
     height: 40px;
     background: none;
     border: none;
-    color: #C8A961;
+    border-radius: 50%;
+    color: #6b7280;
     font-size: 1.5rem;
     cursor: pointer;
-    transition: transform 0.2s ease;
-}
-
-.mobile-nav-close:hover {
-    transform: scale(1.1);
-}
-
-.mobile-nav-links {
-    display: flex;
-    flex-direction: column;
-    padding: 20px 0;
-}
-
-.mobile-nav-links a {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-    padding: 16px 24px;
-    color: white;
-    font-size: 1.1rem;
-    font-weight: 500;
-    text-decoration: none;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     transition: all 0.2s ease;
 }
 
-.mobile-nav-links a i {
-    color: #C8A961;
-    width: 24px;
-    text-align: center;
+.mobile-close-button:hover {
+    background-color: #f3f4f6;
+    color: #0B2A1F;
 }
 
-.mobile-nav-links a:hover {
-    background-color: rgba(200, 169, 97, 0.1);
-    padding-left: 32px;
+.mobile-close-button:active {
+    transform: scale(0.95);
+}
+
+/* Menu Navigation */
+.mobile-menu-nav {
+    display: flex;
+    flex-direction: column;
+    padding: 24px;
+    gap: 8px;
+    flex: 1;
+}
+
+.mobile-nav-item {
+    display: flex;
+    align-items: center;
+    padding: 12px 16px;
+    border-radius: 8px;
+    color: #4b5563;
+    /* neutral-700 */
+    font-size: 1rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+.mobile-nav-item i {
+    width: 20px;
+    margin-right: 12px;
+    color: #C8A961;
+    /* Deleita Gold */
+    font-size: 1.1rem;
+}
+
+.mobile-nav-item:hover {
+    background-color: #f3f4f6;
+    /* neutral-100 */
+    color: #0B2A1F;
+}
+
+.mobile-nav-item.active {
+    background-color: #0B2A1F;
+    /* Deleita Dark Green */
+    color: white;
+}
+
+.mobile-nav-item.active i {
+    color: #C8A961;
+}
+
+/* Optional CTA Section */
+.mobile-menu-cta {
+    padding: 24px;
+    border-top: 1px solid #e5e5e5;
+    flex-shrink: 0;
+}
+
+.mobile-cta-button {
+    display: block;
+    width: 100%;
+    background-color: #0B2A1F;
+    color: white;
+    padding: 12px 24px;
+    border-radius: 9999px;
+    font-weight: 600;
+    text-align: center;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.mobile-cta-button:hover {
+    background-color: #0d3d29;
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.15);
+    transform: scale(1.02);
+}
+
+.mobile-cta-button:active {
+    transform: scale(0.98);
 }
 
 /* ==========================================
@@ -243,17 +306,6 @@
     /* Prevent body scroll when menu is open */
     body.menu-open {
         overflow: hidden;
-    }
-
-    /* Show backdrop when menu is open */
-    body.menu-open .mobile-backdrop {
-        opacity: 1;
-        pointer-events: auto;
-    }
-
-    /* Show mobile nav when active */
-    body.menu-open .mobile-nav {
-        transform: translateX(0);
     }
 }
 
