@@ -809,7 +809,7 @@ h3 {
    ========================================== */
 @media (max-width: 968px) {
 
-    /* 1. Header Structure (Fixed, Glassmorphism, z-50) */
+    /* 1. Header Structure (Dark, Fixed, z-50) */
     .header {
         position: fixed;
         top: 0;
@@ -817,18 +817,16 @@ h3 {
         width: 100%;
         height: 64px;
         /* h-16 */
-        background-color: rgba(255, 255, 255, 0.95);
-        /* bg-white with slight opacity for glass */
+        background-color: rgba(26, 60, 52, 0.95);
+        /* #1A3C34 Dark Green */
         backdrop-filter: blur(12px);
         /* backdrop-blur-lg */
-        border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-        /* border-neutral-200 subtle */
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         z-index: 50;
-        /* z-50 */
         display: flex;
         align-items: center;
         padding: 0;
-        box-shadow: none;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
     }
 
     .header-top-bar {
@@ -842,9 +840,7 @@ h3 {
         margin: 0;
         display: flex;
         justify-content: space-between;
-        /* justify-between */
         align-items: center;
-        /* items-center */
         padding: 0 24px;
         /* px-6 */
         flex-direction: row;
@@ -853,29 +849,24 @@ h3 {
 
     .logo {
         height: 40px;
-        /* Adjusted for smaller header */
         width: auto;
         flex-shrink: 0;
-        filter: brightness(0);
-        /* Make logo black/dark for white header */
+        filter: brightness(0) invert(1);
+        /* Make logo WHITE */
     }
-
-    /* If logo is an image text, brightness(0) makes it black. 
-       If it needs color, we might need a different logo variant or just keep original.
-       "Los Molinos Online" suggests text. Let's try to keep it visible on white. */
 
     .mobile-menu-toggle {
         display: flex;
         align-items: center;
         justify-content: center;
-        color: #1A3C34;
-        /* Dark icon for white header */
+        color: white;
+        /* White icon */
         font-size: 1.5rem;
         cursor: pointer;
         z-index: 60;
     }
 
-    /* 2. Drawer Navigation (w-80, fixed right, shadow-2xl) */
+    /* 2. Drawer Navigation (Fixed, z-70) */
     .nav {
         display: flex;
         flex-direction: column;
@@ -884,82 +875,32 @@ h3 {
         right: 0;
         height: 100dvh;
         width: 320px;
-        /* w-80 */
         max-width: 85vw;
-        /* max-w-[85vw] */
         background-color: #ffffff;
-        /* bg-white */
         z-index: 70;
-        /* z-[70] */
         padding: 80px 30px 30px;
         align-items: flex-start;
         gap: 0;
-        /* Items handle their own spacing */
-        box-shadow: -10px 0 40px rgba(0, 0, 0, 0.2);
-        /* shadow-2xl */
+        box-shadow: -10px 0 40px rgba(0, 0, 0, 0.5);
         transform: translateX(100%);
         transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-        /* ease-out-expo-ish */
     }
 
     .nav.active {
         transform: translateX(0);
     }
 
-    /* Backdrop Overlay (mobile-backdrop) */
-    .nav::before {
-        content: '';
-        position: fixed;
-        inset: 0;
-        /* top right bottom left 0 - relative to nav? No, needs to be fixed to viewport */
-        /* Pseudo element on fixed container is tricky if transform is used. 
-           Better to put separate overlay or use a workaround. 
-           Workaround: Use a separate element or huge shadow. 
-           Let's use the 'body.menu-open' approach with a separate overlay if possible, 
-           or just style the one we had but ensure it breaks out of transform. 
-           Actually, simply using a huge box-shadow on the drawer is a common cheat, but for backdrop blur we need an element.
-           We previously used .nav.active::before with fixed positioning.
-           If the parent has transform, fixed child behaves as absolute. This is the catch. 
-           So we MUST move the backdrop out or use 'backdrop-open' class on body to trigger a global overlay.
-           Let's rely on valid CSS: The ::before on .nav WITHOUT transform? 
-           The .nav moves. The backdrop shouldn't move.
-           Let's add a separate .mobile-backdrop in HTML via JS? Or just use a big shadow for now to be safe.
-           User asked for specific Hardy structure. Hardy likely has a separate div.
-           I will add the backdrop logic to styles, but since I can't easily edit HTML structure to add a div right now 
-           (unless I do it via JS or if I assume one exists), I'll try the pseudo-element on the HEADER or BODY.
-        */
-    }
-
-    /* Using body::after as backdrop */
-    body.menu-open::after {
-        content: '';
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-color: rgba(0, 0, 0, 0.5);
-        /* bg-black/50 */
-        backdrop-filter: blur(4px);
-        /* backdrop-blur-sm */
-        z-index: 60;
-        /* z-[60] - below nav (70) */
-        pointer-events: all;
-        opacity: 1;
-        transition: opacity 0.3s ease;
-    }
+    /* Backdrop Overlay (body.menu-open::after) handled below */
 
     /* Nav Links */
     .nav a {
         font-family: 'Inter', 'Montserrat', sans-serif;
         font-size: 1.1rem;
         color: #1f2937;
-        /* neutral-800 */
         font-weight: 500;
         width: 100%;
         padding: 16px 0;
         border-bottom: 1px solid #f3f4f6;
-        /* border-gray-100 */
         display: flex;
         align-items: center;
         gap: 16px;
@@ -973,36 +914,22 @@ h3 {
 
     /* 3. Hero & Content Padding */
     .hero-content {
-        padding-top: 100px;
-        /* Clear 64px header + space */
-        padding-bottom: 60px;
+        padding-top: 120px;
+        /* Space from header */
+        padding-bottom: 80px;
         text-align: center;
     }
 
     .hero-text h1 {
         font-family: 'Montserrat', sans-serif;
         font-size: 1.875rem;
-        /* text-3xl */
         line-height: 1.25;
         font-weight: 800;
-        color: #111827;
-        /* gray-900 */
-        margin-bottom: 16px;
-        text-transform: uppercase;
-    }
-
-    /* If Hero image is dark, we need white text. 
-       Wait, hero background image is set on .hero. 
-       Usually hero text is white on dark image. 
-       If I change h1 color to dark, it might fade.
-       Reverting text color to white/inherit unless background is white. 
-       "Hardy" usually has light background. "Los Molinos" has Dark Hero Image.
-       Keep Text WHITE for readability on Hero Image.
-    */
-    .hero-text h1,
-    .hero-text p {
         color: white;
+        margin-bottom: 30px;
+        /* Space before text/buttons */
         text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        text-transform: uppercase;
     }
 
     .hero-text p {
@@ -1011,9 +938,11 @@ h3 {
         line-height: 1.6;
         margin-bottom: 32px;
         padding: 0 10px;
+        color: white;
+        text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
     }
 
-    /* 4. Buttons (Pills, Flex Center) */
+    /* 4. Buttons (Flex Column to handle wrapping text) */
     .hero-buttons {
         width: 100%;
         max-width: 100%;
@@ -1026,20 +955,27 @@ h3 {
     .btn-primary,
     .btn-secondary {
         display: flex;
+        flex-direction: column;
+        /* Force multi-line text to center stack if needed, or just flex center */
         justify-content: center;
         align-items: center;
+        text-align: center;
+
         width: 100%;
-        height: 56px;
-        /* h-14 */
+        min-height: 64px;
+        /* Taller touch target */
+        height: auto;
+        /* Allow growth */
+        padding: 12px 20px;
+
         border-radius: 9999px;
         /* rounded-full */
-        font-weight: 600;
-        /* font-medium/semibold */
-        font-size: 1rem;
-        padding: 0 24px;
-        text-align: center;
-        transition: background-color 0.2s;
-        line-height: 1.2;
+        font-weight: 700;
+        font-size: 14px;
+        /* Reduced font size to fit text */
+        line-height: 1.3;
+        white-space: normal;
+        /* Allow text wrapping */
     }
 
     /* 5. Carousel (Flex Track) */
