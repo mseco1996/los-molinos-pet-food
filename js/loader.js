@@ -28,6 +28,7 @@ async function initApp() {
     await Promise.all([
         loadComponent('header-container', 'html/header.html'),
         loadComponent('hero-container', 'html/hero.html'),
+        loadComponent('beneficios-container', 'html/beneficios.html'),
         loadComponent('conocenos-container', 'html/conocenos.html'),
         loadComponent('lineas-container', 'html/lineas.html'),
         loadComponent('catalogo-container', 'html/catalogo.html'),
@@ -35,7 +36,7 @@ async function initApp() {
         loadComponent('puntos-venta-container', 'html/puntos-venta.html'),
         loadComponent('contacto-container', 'html/contacto.html'),
         loadComponent('footer-container', 'html/footer.html'),
-        loadComponent('cart-sidebar-container', 'html/cart-sidebar.html')
+        loadComponent('footer-container', 'html/footer.html')
     ]);
 
     // 2. Initialize Logic after DOM is ready
