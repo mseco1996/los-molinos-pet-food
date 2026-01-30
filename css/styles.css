@@ -810,7 +810,7 @@ h3 {
     .header {
         background-color: #1A3C34;
         /* Always solid on mobile for visibility */
-        padding: 10px 0;
+        padding: 15px 0;
         box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
     }
 
@@ -822,19 +822,22 @@ h3 {
     .header-content {
         padding: 5px 20px;
         justify-content: space-between;
+        flex-direction: row-reverse;
+        /* Swap Menu (Left) and Logo (Right) */
+        align-items: center;
     }
 
     /* Hero Mobile Optimization */
     .hero {
-        background-position: 65% center;
+        background-position: 70% center;
         /* Adjust image center */
     }
 
     .hero-content {
         grid-template-columns: 1fr;
         text-align: center;
-        padding-top: 120px;
-        /* Adjusted for new header */
+        padding-top: 160px;
+        /* Increased spacing */
         padding-bottom: 80px;
         align-content: center;
     }
@@ -846,20 +849,25 @@ h3 {
     }
 
     .hero-text h1 {
-        font-size: 2.4rem;
-        line-height: 1.1;
+        font-family: 'Montserrat', sans-serif;
+        font-size: 2rem;
+        /* Reduced size */
+        line-height: 1.2;
         margin-bottom: 15px;
         text-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
         text-transform: uppercase;
-        letter-spacing: 1px;
+        letter-spacing: 0.5px;
+        font-weight: 800;
     }
 
     .hero-text p {
-        font-size: 1.05rem;
+        font-family: 'Montserrat', sans-serif;
+        font-size: 1rem;
         padding: 0 5px;
-        margin-bottom: 25px;
+        margin-bottom: 30px;
         text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
         font-weight: 500;
+        line-height: 1.5;
     }
 
     .hero-buttons {
@@ -869,21 +877,25 @@ h3 {
         padding: 0;
         display: flex;
         flex-direction: column;
-        gap: 12px;
+        gap: 15px;
     }
 
     .btn-primary,
     .btn-secondary {
-        padding: 16px 20px;
-        font-size: 1rem;
+        padding: 0 20px;
+        height: 50px;
+        font-size: 0.9rem;
         width: 100%;
         display: flex;
         align-items: center;
         justify-content: center;
-        border-radius: 4px;
+        text-align: center;
+        border-radius: 5px;
         /* More squared off like reference likely has */
         text-transform: uppercase;
         letter-spacing: 1px;
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 700;
     }
 
     .btn-secondary {
