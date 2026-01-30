@@ -10,12 +10,23 @@
 html {
     scroll-behavior: smooth;
     scroll-padding-top: 120px;
+    overflow-x: hidden;
+    /* Prevent horizontal scroll */
 }
 
 body {
     font-family: 'Raleway', sans-serif;
     color: #333;
     line-height: 1.6;
+    overflow-x: hidden;
+    /* Double safety */
+}
+
+/* Global Image Reset */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
 }
 
 h1,
@@ -30,6 +41,8 @@ h3 {
     margin: 0 auto;
     padding: 0 20px;
 }
+
+
 
 /* ==========================================
    HEADER
@@ -509,8 +522,10 @@ h3 {
 }
 
 .product-image-container {
-    width: 350px;
-    height: 350px;
+    width: 100%;
+    max-width: 350px;
+    aspect-ratio: 1 / 1;
+    height: auto;
     display: flex;
     align-items: center;
     justify-content: center;
